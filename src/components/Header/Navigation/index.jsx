@@ -1,16 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Button from '@mui/material/Button';
 import { HiMenuAlt1 } from "react-icons/hi";
 import { FaAngleDown } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 import { GoRocket } from "react-icons/go";
+import CategoryPanel from './CategoryPanel';
 
 const Navigation = () => {
+
+     const [open, setOpen] = useState(false);
+    
+      const toggleDrawer = (newOpen) => () => {
+        setOpen(newOpen);
+      };
+
     return (
-        <nav className="py-2">
+        <>
+           <nav className="py-2">
             <div className="container flex items-center">
                 <div className="col_1 w-[20%]">
                     <Button
+                        onClick={toggleDrawer(true)}
                         sx={{
                             padding: 0,
                             color: "black",
@@ -18,9 +28,9 @@ const Navigation = () => {
                             gap: 1,
                             width: "100%"
                         }}>
-                        <HiMenuAlt1 size={25} />
+                        <HiMenuAlt1 size={25} className='cursor-pointer'/>
                         Shop by Categories
-                        <FaAngleDown size={15} className='ml-auto' />
+                        <FaAngleDown size={15} className='ml-auto cursor-pointer' />
                     </Button>
                 </div>
 
@@ -182,6 +192,10 @@ const Navigation = () => {
 
             </div>
         </nav>
+
+        {/* Category pannel component */}
+        <CategoryPanel open={open} toggleDrawer={toggleDrawer}/>
+        </>
     )
 }
 
