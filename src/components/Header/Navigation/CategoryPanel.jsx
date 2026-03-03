@@ -34,11 +34,8 @@ const CategoryPanel = (props) => {
     }
 
     const DrawerList = (
-        <Box sx={{ width: 250 }} role="presentation">
-
-            <h3 className="flex items-center justify-between p-3 text-[18px] font-medium">Shop by Categories <IoCloseSharp className='cursor-pointer text-[20px]' onClick={props.toggleDrawer(false)} /></h3>
-
-
+        <Box sx={{ width: 350 }} role="presentation">
+            <h3 className="flex items-center justify-between p-3 text-[18px] font-medium">Shop by Categories <IoCloseSharp size={25} className='cursor-pointer' onClick={props.toggleDrawer(false)} /></h3>
             <div className="scroll">
                 <ul className="w-full">
                     <li className="list-none flex items-center justify-between relative flex-col">
@@ -141,11 +138,6 @@ const CategoryPanel = (props) => {
                                 </>
                             )
                         }
-
-
-
-
-
                     </li>
                 </ul>
             </div>

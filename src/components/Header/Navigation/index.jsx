@@ -111,24 +111,6 @@ const Navigation = () => {
                                 className="flex items-center gap-2 pl-5 relative whitespace-nowrap max-w-full"
                             >
 
-                                {/* {visibleItems.map(item => (
-                                    <li key={item.label} className="list-none">
-                                        <Button
-                                            component={Link}
-                                            to={item.link}
-                                            sx={{
-                                                fontWeight: 700,
-                                                fontSize: "14px",
-                                                color: "rgba(0,0,0,0.8)",
-                                                textTransform: "none",
-                                                "&:hover": { color: "#ff5252" },
-                                            }}
-                                        >
-                                            {item.label}
-                                        </Button>
-                                    </li>
-                                ))} */}
-
                                 {visibleItems.map(item => (
                                     <li
                                         key={item.label}
