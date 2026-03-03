@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 @theme {
   /* ---------- Font roles ---------- */
   /* --font-body: "Poppins", sans-serif;
@@ -9,23 +8,25 @@
 
   /* ---------- Core colors ---------- */
   --color-primary: #ff5252;
-
 }
 
 body {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   background-color: #f5f0f0;
-} 
+}
 
 .container {
   width: 100%;
   padding: 0 1px;
   margin: 0 auto;
+  /* ADD THIS */
+  min-width: 0;
+  flex-shrink: 1;
 }
 
-.link:hover{
-color: #ff5252;
+.link:hover {
+  color: #ff5252;
 }
 
 /* Hide scrollbar for Chrome, Safari and Edge */
@@ -41,10 +42,10 @@ color: #ff5252;
 
 @media (min-width: 1280px) {
   .container {
-    width: 95%;
+    max-width: 95%;
+    width: 100%; /* so flex shrink still works */
     padding: 0;
+    min-width: 0; /* required! */
+    flex-shrink: 1;
   }
 }
-
-
-
