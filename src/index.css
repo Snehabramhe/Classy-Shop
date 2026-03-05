@@ -14,15 +14,26 @@ body {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   background-color: #f5f0f0;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+}
+
+::-webkit-scrollbar-track {
+  background: #fff;
 }
 
 .container {
   width: 100%;
   padding: 0 1px;
   margin: 0 auto;
-  /* ADD THIS */
-  min-width: 0;
-  flex-shrink: 1;
 }
 
 .link:hover {
@@ -38,6 +49,35 @@ body {
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.sliderHome {
+  overflow: inherit !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 100%;
+  width: 45px;
+  height: 45px;
+  min-width: 45px;
+  font-size: 12px !important;
+  color: #000 !important;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  font-size: 22px !important;
+  background-color: var(--color-primary) !important;
+  color: #fff !important;
+}
+.swiper-navigation-icon{
+  width: 25px !important;
+  height: 25px !important;
 }
 
 @media (min-width: 1280px) {
