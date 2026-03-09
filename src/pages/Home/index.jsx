@@ -8,6 +8,7 @@ import Tab from '@mui/material/Tab';
 import { Link } from 'react-router-dom';
 import ProductsSlider from '../../components/ProductsSlider';
 import Blogs from '../../components/Blogs';
+import Footer from '../../components/Footer';
 
 const menuItems = [
   { label: "Home", link: "/" },
@@ -124,17 +125,7 @@ const Home = () => {
         </div>
       </section>
 
-
-
-
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+      <Footer/>
     </>
   )
 }
