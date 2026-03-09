@@ -71,7 +71,7 @@ const HomeCatSlider = () => {
       <div className="container">
         <Swiper loop={true} slidesPerView={7} navigation={true} modules={[Navigation]} spaceBetween={30}>
           {bannerImages.map((item, index) => (
-            <SwiperSlide key={index}>
+            <SwiperSlide key={item.label}>
               <Link to={`/${item.label.toLowerCase()}`}>
                 <div className="item p-3 h-40 w-40 rounded-full text-center flex items-center justify-center flex-col gap-3" style={{ backgroundColor: item.color }}>
                   <img className="w-20 rounded-xl transition-transform duration-300 hover:scale-110" src={item.src} alt={item.alt} />

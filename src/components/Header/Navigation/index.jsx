@@ -123,6 +123,7 @@ const Navigation = () => {
                                             to={item.link}
                                             sx={{
                                                 fontWeight: 700,
+                                                // paddingY: "8px",
                                                 fontSize: "14px",
                                                 color: "rgba(0,0,0,0.8)",
                                                 textTransform: "none",

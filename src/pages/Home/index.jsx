@@ -7,6 +7,7 @@ import Tabs, { tabsClasses } from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { Link } from 'react-router-dom';
 import ProductsSlider from '../../components/ProductsSlider';
+import Blogs from '../../components/Blogs';
 
 const menuItems = [
   { label: "Home", link: "/" },
@@ -73,14 +74,15 @@ const Home = () => {
               </Tabs>
             </div>
           </div>
+          <ProductsSlider items={5} />
         </div>
 
-        <ProductsSlider items={5} />
+
       </section>
 
-      <section className="py-16 bg-white">
+      <section className="py-4 pt-2 bg-white">
         <div className="container">
-          <div className="freeShiping w-[90%] m-auto p-8 border-2 border-primary flex items-center justify-between rounded-md mb-7">
+          <div className="freeShiping w-[90%] mx-auto p-8 border-2 border-primary flex items-center justify-between rounded-md mb-7">
             <div className="col1 flex items-center gap-4">
               <LiaShippingFastSolid size={50} />
               <span className="font-semibold text-[20px]">FREE SHIPPING</span>
@@ -93,9 +95,46 @@ const Home = () => {
             <p className="font-bold text-[25px]">- Only $200*</p>
           </div>
 
+          <AdsBannerSlider items={4} />
+        </div>
+      </section>
+
+
+      <section className="py-5 pt-0 bg-white">
+        <div className="container">
+          <h3 className="text-[20px] font-semibold">Latest Products</h3>
+          <ProductsSlider items={5} />
           <AdsBannerSlider items={3} />
         </div>
       </section>
+
+
+      <section className="py-5 pt-0 bg-white">
+        <div className="container">
+          <h3 className="text-[20px] font-semibold">Featured Products</h3>
+          <ProductsSlider items={5} />
+          <AdsBannerSlider items={3} />
+        </div>
+      </section>
+
+      <section className="py-5 pb-8 pt-0 bg-white blogSection">
+        <div className="container">
+          <h3 className="text-[20px] font-semibold mb-3">From The Blog</h3>
+          <Blogs />
+        </div>
+      </section>
+
+
+
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   )
 }

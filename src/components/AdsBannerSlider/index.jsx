@@ -61,9 +61,9 @@ const AdsBannerSlider = (props) => {
 
     return (
         <div className="w-full py-10">
-            <Swiper loop={true} slidesPerView={props.items} navigation={true} modules={[Navigation]} spaceBetween={30}>
+            <Swiper loop={true} slidesPerView={props.items} navigation={true} modules={[Navigation]} spaceBetween={20}>
                 {bannerImages.map((item, index) => (
-                    <SwiperSlide key={item.alt}>
+                    <SwiperSlide key={item.label}>
                            <BannerBox src={item.src} alt={item.alt} label={item.label}/>
                     </SwiperSlide>
                 ))}

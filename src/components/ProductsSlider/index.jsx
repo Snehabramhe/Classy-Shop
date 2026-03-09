@@ -70,17 +70,15 @@ const ProductsSlider = (props) => {
 
     return (
         <div className="ProductsSlider py-8">
-            <div className="container">
                 <Swiper loop={true} slidesPerView={props.items} navigation={true} modules={[Navigation]} spaceBetween={30}>
                     {bannerImages.map((item, index) => (
-                        <SwiperSlide key={index}>
-                            <Link to={`/${item.label.toLowerCase()}`}>
+                        <SwiperSlide key={item.label}>
+                            {/* <Link to={`/${item.label.toLowerCase()}`}> */}
                                 <ProductItem />
-                            </Link>
+                            {/* </Link> */}
                         </SwiperSlide>
                     ))}
                 </Swiper>
-            </div>
         </div>
     )
 }
