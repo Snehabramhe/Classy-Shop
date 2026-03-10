@@ -29,7 +29,7 @@ const BannerBoxV2 = () => {
           <div
             key={index}
             style={{ backgroundColor: item.bgColor }}
-            className={`w-full h-1/2 rounded-md flex items-center gap-2 px-6 overflow-hidden transition-all duration-150 hover:scale-105 ${
+            className={`w-full h-1/2 rounded-md flex items-center gap-2 px-6 overflow-hidden transition-all duration-150 hover:scale-105  cursor-pointer ${
               isImageLeft ? "flex-row-reverse" : "flex-row"
             }`}
           >
@@ -43,6 +43,7 @@ const BannerBoxV2 = () => {
                 {item.price}
               </span>
 
+            
               <button className="text-md font-semibold underline">
                 SHOP NOW
               </button>
@@ -64,3 +65,4 @@ const BannerBoxV2 = () => {
 };
 
 export default BannerBoxV2;
+

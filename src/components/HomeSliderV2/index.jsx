@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { EffectFade, Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
 import CustomButton from '../Common/Button';
 
 const banners = [
@@ -38,6 +38,7 @@ const HomeBannerV2 = () => {
                 spaceBetween={30}
                 effect={'fade'}
                 navigation={true}
+                autoplay={{ delay: 2500 }}
                 pagination={{
                     clickable: true,
                     renderBullet: function (index, className) {
@@ -53,7 +54,7 @@ const HomeBannerV2 = () => {
                         </span>`;
                     }
                 }}
-                modules={[EffectFade, Navigation, Pagination]}
+                modules={[EffectFade, Navigation, Pagination,Autoplay]}
                 className="homeSliderV2"
 
             >

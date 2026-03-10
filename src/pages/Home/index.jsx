@@ -25,6 +25,90 @@ const menuItems = [
 ];
 
 
+const bannerSet1 = [
+  {
+    src: "https://res.cloudinary.com/djodhdoyk/image/upload/v1772562295/file_1734525620831_NewProject_3_njjvl4.jpg",
+    alt: "Banner_1",
+    label: "Fashion",
+  },
+  {
+    src: "https://res.cloudinary.com/djodhdoyk/image/upload/v1772562387/file_1734532742018_NewProject_22_rwdah0.jpg",
+    alt: "Banner_2",
+    label: "Electronics",
+  },
+  {
+    src: "https://res.cloudinary.com/djodhdoyk/image/upload/v1772562393/file_1734525653108_NewProject_20_miliyc.jpg",
+    alt: "Banner_3",
+    label: "Bags",
+  },
+  {
+    src: "https://res.cloudinary.com/djodhdoyk/image/upload/v1772562412/file_1734525634299_NewProject_2_etx65o.jpg",
+    alt: "Banner_4",
+    label: "Footwear",
+  },
+  {
+    src: "https://res.cloudinary.com/djodhdoyk/image/upload/v1772562295/file_1734525620831_NewProject_3_njjvl4.jpg",
+    alt: "Banner_1",
+    label: "Fashion",
+  },
+  {
+    src: "https://res.cloudinary.com/djodhdoyk/image/upload/v1772562387/file_1734532742018_NewProject_22_rwdah0.jpg",
+    alt: "Banner_2",
+    label: "Electronics",
+  },
+  {
+    src: "https://res.cloudinary.com/djodhdoyk/image/upload/v1772562393/file_1734525653108_NewProject_20_miliyc.jpg",
+    alt: "Banner_3",
+    label: "Bags",
+  },
+  {
+    src: "https://res.cloudinary.com/djodhdoyk/image/upload/v1772562412/file_1734525634299_NewProject_2_etx65o.jpg",
+    alt: "Banner_4",
+    label: "Footwear",
+  }
+];
+
+const bannerSet2 = [
+  {
+    src: "https://res.cloudinary.com/djodhdoyk/image/upload/v1773134495/1741669037986_banner2_rjjtcr.webp",
+    alt: "Banner_1",
+    label: "Fashion",
+  },
+  {
+    src: "https://res.cloudinary.com/djodhdoyk/image/upload/v1773134526/1742453755529_1741669087880_banner6_voh1qq.webp",
+    alt: "Banner_2",
+    label: "Electronics",
+  },
+  {
+    src: "https://res.cloudinary.com/djodhdoyk/image/upload/v1773134513/1741669057847_banner5_aoykgh.webp",
+    alt: "Banner_3",
+    label: "Bags",
+  },
+  {
+    src: "https://res.cloudinary.com/djodhdoyk/image/upload/v1773134539/1763693112742_banner1_xrh7uz.webp",
+    alt: "Banner_4",
+    label: "Footwear",
+  },
+]
+
+const bannerSet3 = [
+  {
+    src: "https://res.cloudinary.com/djodhdoyk/image/upload/v1772562393/file_1734525653108_NewProject_20_miliyc.jpg",
+    alt: "Banner_1",
+    label: "Bags",
+  },
+  {
+    src: "https://res.cloudinary.com/djodhdoyk/image/upload/v1772562412/file_1734525634299_NewProject_2_etx65o.jpg",
+    alt: "Banner_2",
+    label: "Footwear",
+  },
+  {
+    src: "https://res.cloudinary.com/djodhdoyk/image/upload/v1772562387/file_1734532742018_NewProject_22_rwdah0.jpg",
+    alt: "Banner_3",
+    label: "Electronics",
+  },
+]
+
 const Home = () => {
   const [value, setValue] = React.useState(0);
 
@@ -46,6 +130,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+
 
       <HomeCatSlider />
 
@@ -110,7 +195,7 @@ const Home = () => {
             <p className="font-bold text-[25px]">- Only $200*</p>
           </div>
 
-          <AdsBannerSlider items={4} />
+          <AdsBannerSlider items={4}   banners={bannerSet1}/>
         </div>
       </section>
 
@@ -119,7 +204,7 @@ const Home = () => {
         <div className="container">
           <h3 className="text-[20px] font-semibold">Latest Products</h3>
           <ProductsSlider items={5} />
-          <AdsBannerSlider items={3} />
+          <AdsBannerSlider items={3}  banners={bannerSet2}/>
         </div>
       </section>
 
@@ -128,7 +213,7 @@ const Home = () => {
         <div className="container">
           <h3 className="text-[20px] font-semibold">Featured Products</h3>
           <ProductsSlider items={5} />
-          <AdsBannerSlider items={3} />
+          <AdsBannerSlider items={3}  banners={bannerSet3}/>
         </div>
       </section>
 
