@@ -9,6 +9,8 @@ import { Link } from 'react-router-dom';
 import ProductsSlider from '../../components/ProductsSlider';
 import Blogs from '../../components/Blogs';
 import Footer from '../../components/Footer';
+import HomeBannerV2 from '../../components/HomeSliderV2';
+import BannerBoxV2 from '../../components/BannerBoxV2';
 
 const menuItems = [
   { label: "Home", link: "/" },
@@ -32,7 +34,19 @@ const Home = () => {
 
   return (
     <>
-      <HomeSlider />
+      {/* <HomeSlider /> */}
+
+      <section className="py-6">
+        <div className="container flex items-center gap-4">
+          <div className="w-[75%]">
+            <HomeBannerV2 />
+          </div>
+          <div className="w-[25%]">
+            <BannerBoxV2 />
+          </div>
+        </div>
+      </section>
+
       <HomeCatSlider />
 
       <section className="bg-white py-8">
@@ -125,7 +139,7 @@ const Home = () => {
         </div>
       </section>
 
-      <Footer/>
+      <Footer />
     </>
   )
 }

@@ -67,7 +67,7 @@ import { Navigation } from 'swiper/modules';
 const HomeCatSlider = () => {
 
   return (
-    <div className="HomeCatSlider py-20 ">
+    <div className="HomeCatSlider py-6 pb-12 ">
       <div className="container">
         <Swiper loop={true} slidesPerView={7} navigation={true} modules={[Navigation]} spaceBetween={30}>
           {bannerImages.map((item, index) => (
