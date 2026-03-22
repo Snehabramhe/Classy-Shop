@@ -14,7 +14,7 @@ import Navigation from './Navigation';
 
 const Header = () => {
     return (
-        <header className="bg-white w-full">
+        <header className="bg-white w-full border-b border-gray-200 drop-shadow-md">
             <div className='top-strip py-2 border-t border-gray-200 border-b'>
                 <div className='container'>
                     <div className='flex items-center justify-between'>
