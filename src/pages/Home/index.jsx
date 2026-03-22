@@ -8,7 +8,6 @@ import Tab from '@mui/material/Tab';
 import { Link } from 'react-router-dom';
 import ProductsSlider from '../../components/ProductsSlider';
 import Blogs from '../../components/Blogs';
-import Footer from '../../components/Footer';
 import HomeBannerV2 from '../../components/HomeSliderV2';
 import BannerBoxV2 from '../../components/BannerBoxV2';
 
@@ -223,8 +222,6 @@ const Home = () => {
           <Blogs />
         </div>
       </section>
-
-      <Footer />
     </>
   )
 }
