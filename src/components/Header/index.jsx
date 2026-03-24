@@ -53,70 +53,70 @@ const Header = () => {
                                 <Link to="/login" className='link transition text-[15px] font-medium '>Login</Link> &nbsp;|&nbsp;
                                 <Link to="/register" className='link transition text-[15px] font-medium '>Register</Link>
                             </li>
-                             <li className="list-none">
-                                 <Tooltip title="Compare">
-                                <IconButton aria-label="compare">
-                                    <Badge
-                                        badgeContent={4} color="secondary"
-                                        anchorOrigin={{
-                                            vertical: 'top',
-                                            horizontal: 'right',
-                                        }}
-                                        sx={{
-                                            "& .MuiBadge-badge": {
-                                                backgroundColor: "#ff5252",
-                                                color: "white",
-                                            },
-                                        }}
+                            <li className="list-none">
+                                <Tooltip title="Compare">
+                                    <IconButton aria-label="compare">
+                                        <Badge
+                                            badgeContent={4} color="secondary"
+                                            anchorOrigin={{
+                                                vertical: 'top',
+                                                horizontal: 'right',
+                                            }}
+                                            sx={{
+                                                "& .MuiBadge-badge": {
+                                                    backgroundColor: "#ff5252",
+                                                    color: "white",
+                                                },
+                                            }}
 
-                                    >
-                                        <IoGitCompareOutline/>
-                                    </Badge>
-                                </IconButton>
+                                        >
+                                            <IoGitCompareOutline />
+                                        </Badge>
+                                    </IconButton>
                                 </Tooltip>
                             </li>
-                             <li className="list-none">
+                            <li className="list-none">
                                 <Tooltip title="Wishlist">
-                                <IconButton aria-label="wishlist">
-                                    <Badge
-                                        badgeContent={4} color="secondary"
-                                        anchorOrigin={{
-                                            vertical: 'top',
-                                            horizontal: 'right',
-                                        }}
-                                        sx={{
-                                            "& .MuiBadge-badge": {
-                                                backgroundColor: "#ff5252",
-                                                color: "white",
-                                            },
-                                        }}
+                                    <IconButton aria-label="wishlist">
+                                        <Badge
+                                            badgeContent={4} color="secondary"
+                                            anchorOrigin={{
+                                                vertical: 'top',
+                                                horizontal: 'right',
+                                            }}
+                                            sx={{
+                                                "& .MuiBadge-badge": {
+                                                    backgroundColor: "#ff5252",
+                                                    color: "white",
+                                                },
+                                            }}
 
-                                    >
-                                        <IoHeartOutline/>
-                                    </Badge>
-                                </IconButton>
+                                        >
+                                            <IoHeartOutline />
+                                        </Badge>
+                                    </IconButton>
                                 </Tooltip>
                             </li>
                             <li className="list-none">
                                 <Tooltip title="Cart">
-                                <IconButton aria-label="cart">
-                                    <Badge
-                                        badgeContent={4} color="secondary"
-                                        anchorOrigin={{
-                                            vertical: 'top',
-                                            horizontal: 'right',
-                                        }}
-                                        sx={{
-                                            "& .MuiBadge-badge": {
-                                                backgroundColor: "#ff5252",
-                                                color: "white",
-                                            },
-                                        }}
+                                    <IconButton aria-label="cart">
+                                        <Badge
+                                            badgeContent={4} color="secondary"
+                                            anchorOrigin={{
+                                                vertical: 'top',
+                                                horizontal: 'right',
+                                            }}
+                                            sx={{
+                                                "& .MuiBadge-badge": {
+                                                    backgroundColor: "#ff5252",
+                                                    color: "white",
+                                                },
+                                            }}
 
-                                    >
-                                        <MdOutlineShoppingCart />
-                                    </Badge>
-                                </IconButton>
+                                        >
+                                            <MdOutlineShoppingCart />
+                                        </Badge>
+                                    </IconButton>
                                 </Tooltip>
                             </li>
                         </ul>
@@ -124,7 +124,9 @@ const Header = () => {
                 </div>
             </div>
 
-            <Navigation/>
+            <div className="relative z-50">
+                <Navigation />
+            </div>
         </header>
     )
 }

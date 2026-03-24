@@ -82,7 +82,7 @@ const Navigation = () => {
 
     return (
         <>
-            <nav className="py-2">
+            <nav className="py-2 relative z-9999">
                 <div className="container flex items-center min-w-0">
                     <div className="col_1 w-[20%] min-w-0">
                         <Button
@@ -123,7 +123,6 @@ const Navigation = () => {
                                             to={item.link}
                                             sx={{
                                                 fontWeight: 700,
-                                                // paddingY: "8px",
                                                 fontSize: "14px",
                                                 color: "rgba(0,0,0,0.8)",
                                                 textTransform: "none",
@@ -141,7 +140,7 @@ const Navigation = () => {
                                                 transition-all duration-200
                                                 ${active === item.label ? "opacity-100 visible" : "opacity-0 invisible"}
                                             `}
-                                                style={{ zIndex: 10 }}
+                                                style={{ zIndex:  9999}}
                                             >
                                                 {subMenus[item.label].map((sub, i) => (
 
@@ -180,7 +179,7 @@ const Navigation = () => {
                                                 transition-all duration-200
                                                 ${active === "more" ? "opacity-100 visible" : "opacity-0 invisible"}
                                             `}
-                                            style={{ zIndex: 9999 }}>
+                                            style={{ zIndex: 30 }}>
                                             {hiddenItems.map(item => (
                                                 <Button key={item.label} component={Link} to={item.link} sx={{ justifyContent: "start", textTransform: "none", paddingLeft: "20px", fontWeight: "600", "&:hover": { color: "var(--color-primary)" }, color: "rgba(0,0,0,0.8)" }}>{item.label}</Button>
 
