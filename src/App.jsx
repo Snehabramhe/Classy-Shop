@@ -9,9 +9,10 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Layout from "./components/Layout";
 import AuthLayout from "./components/Authentication/Layout";
+import ProductDetailPage from "./pages/ProductDetailPage";
 
 
-const App = () =>  {
+const App = () => {
 
   return (
     <>
@@ -21,15 +22,16 @@ const App = () =>  {
           {/* Pages WITH Header + Footer */}
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
-            <Route path="/ProductListing" element={<ProductListing />} />
+            <Route path="/products" element={<ProductListing />} />
+            <Route path="/product/:id" element={<ProductDetailPage />} />
           </Route>
 
           {/* Pages WITHOUT Header + Footer */}
-          <Route  element={<AuthLayout/>}>
+          <Route element={<AuthLayout />}>
             <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} /> 
+            <Route path="/register" element={<Register />} />
           </Route>
-        
+
         </Routes>
       </BrowserRouter>
     </>

@@ -1,10 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ product, view }) => {
+    const navigate = useNavigate();
     // 👉 LIST VIEW (1 column)
     if (view === 1) {
         return (
-            <div className="bg-gray-100 rounded-lg p-4 flex gap-4 shadow-sm">
+            <div onClick={() => navigate(`/product/${product.id}`)}
+                className="bg-gray-100 rounded-lg p-4 flex gap-4 shadow-sm cursor-pointer">
 
                 {/* Image */}
                 <div className="w-48 h-56 relative shadow-2xl rounded-lg">
@@ -52,7 +55,8 @@ const ProductCard = ({ product, view }) => {
 
     // 👉 GRID VIEW (default)
     return (
-        <div className="bg-white rounded-lg overflow-hidden shadow-2xl hover:scale-102 duration-300 transition cursor-pointer">
+        <div onClick={() => navigate(`/product/${product.id}`)}
+            className="bg-white rounded-lg overflow-hidden shadow-2xl hover:scale-102 duration-300 transition cursor-pointer">
 
             {/* Image */}
             <div className="relative h-64">
@@ -75,9 +79,6 @@ const ProductCard = ({ product, view }) => {
                 <h3 className="text-sm font-medium mt-1 line-clamp-2">
                     {product.title}
                 </h3>
-
-                {/* <p className="mt-2 font-semibold">{product.price}</p> */}
-
 
                 {/* Rating */}
                 <div className="flex mt-2">
