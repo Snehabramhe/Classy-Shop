@@ -10,6 +10,8 @@ import Register from "./pages/Register";
 import Layout from "./components/Layout";
 import AuthLayout from "./components/Authentication/Layout";
 import ProductDetailPage from "./pages/ProductDetailPage";
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 
 
 const App = () => {
@@ -24,6 +26,8 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<ProductListing />} />
             <Route path="/product/:id" element={<ProductDetailPage />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
           </Route>
 
           {/* Pages WITHOUT Header + Footer */}
