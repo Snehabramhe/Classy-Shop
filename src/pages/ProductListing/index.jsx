@@ -5,6 +5,12 @@ import { HiBars3 } from "react-icons/hi2";
 import { HiSquares2X2 } from "react-icons/hi2";
 import SortDropdown from "../../components/Common/SortDropdown";
 import Pagination from "../../components/Common/Pagination";
+import CustomBreadcrumbs from "../../components/BreadCrumb";
+
+const breadcrumbData = [
+    { label: "Home", href: "/" },
+    { label: "Fashion" }, // last one (no link)
+  ];
 
 const ProductListing = () => {
   const [grid, setGrid] = useState(4); // default 4 columns
@@ -14,10 +20,7 @@ const ProductListing = () => {
   return (
     <div className="bg-white min-h-screen p-4">
 
-      {/* Breadcrumb */}
-      <div className="text-lg text-gray-500 pl-4">
-        Home / <span className="text-black font-medium">Fashion</span>
-      </div>
+      <CustomBreadcrumbs items={breadcrumbData}/>
 
       <div className="flex gap-4">
 

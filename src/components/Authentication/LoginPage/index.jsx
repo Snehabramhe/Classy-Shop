@@ -37,7 +37,7 @@ const LoginPage = () => {
           </span>
         </div>
 
-        <p className="font-medium mb-4 cursor-pointer hover:text-primary">
+        <p onClick={() => navigate("/forgot-password")} className="font-medium mb-4 cursor-pointer hover:text-primary">
           Forgot Password?
         </p>
 

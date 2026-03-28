@@ -1,6 +1,7 @@
 import React from "react";
 import ProductImages from "../ProductDetail/ProductImages";
 import ProductInfo from "../ProductDetail/ProductInfo";
+import { VscChromeClose } from "react-icons/vsc";
 
 const ProductModal = ({ product, onClose }) => {
 
@@ -22,13 +23,13 @@ const ProductModal = ({ product, onClose }) => {
         {/* ❌ Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 text-xl font-bold hover:text-red-500"
+          className="absolute top-3 right-3 text-xl font-bold cursor-pointer hover:text-red-500"
         >
-          ✕
+         <VscChromeClose/>
         </button>
 
         {/* ✅ Safe image fallback */}
-        <ProductImages images={product.images || [product.images]} />
+        <ProductImages images={product.images || [product.images]} zoomType="click" />
 
         <ProductInfo product={product} />
       </div>

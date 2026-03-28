@@ -12,6 +12,7 @@ import AuthLayout from "./components/Authentication/Layout";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import ForgotPassword from "./components/ForgotPassword";
 
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
           <Route element={<AuthLayout />}>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
           </Route>
 
         </Routes>

@@ -1,16 +1,40 @@
-import React, { useState } from "react";
+import React, { useState,useEffect,useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import { FaArrowUp } from "react-icons/fa";
-import { FaArrowDown } from "react-icons/fa";
+import { IoIosArrowUp } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
 
-const ProductImages = ({ images }) => {
-    const [activeImage, setActiveImage] = useState(images[0]);
+const ProductImages = ({ images, zoomType = "hover" }) => {
+    const [slideIndex, setSlideIndex] = useState(0);
+    const zoomSliderBig = useRef();
+    const zoomSliderSml = useRef();
+
     const [showZoom, setShowZoom] = useState(false);
     const [zoomStyle, setZoomStyle] = useState({});
     const [lensStyle, setLensStyle] = useState({});
+
+
+    const goto = (index) => {
+        setSlideIndex(index);
+        zoomSliderBig.current.swiper.slideTo(index);
+    }
+
+    const handleMouseEnter = () => {
+        if (zoomType === "hover") setShowZoom(true);
+    };
+
+    const handleMouseLeave = () => {
+        if (zoomType === "hover") setShowZoom(false);
+    };
+
+    const handleClick = (e) => {
+        if (zoomType === "click") {
+            e.stopPropagation();
+            setShowZoom((prev) => !prev);
+        }
+    };
 
     const handleMouseMove = (e) => {
         const { left, top, width, height } =
@@ -33,6 +57,20 @@ const ProductImages = ({ images }) => {
         });
     };
 
+    useEffect(() => {
+        if (zoomType !== "click") return;
+
+        const handleOutsideClick = () => setShowZoom(false);
+
+        if (showZoom) {
+            window.addEventListener("click", handleOutsideClick);
+        }
+
+        return () => {
+            window.removeEventListener("click", handleOutsideClick);
+        };
+    }, [showZoom, zoomType]);
+
     return (
         <div className="relative">
             <div className="flex gap-4">
@@ -40,27 +78,28 @@ const ProductImages = ({ images }) => {
 
                     {/* 🔼 TOP BUTTON */}
                     <div className="swiper-button-up w-full flex justify-center items-center cursor-pointer bg-gray-200 hover:bg-primary hover:text-white py-1 rounded">
-                        <FaArrowUp />
+                        <IoIosArrowUp />
                     </div>
 
                     {/* 🖼️ SWIPER */}
                     <Swiper
+                        ref={zoomSliderSml}
                         direction="vertical"
                         slidesPerView={4}
-                        spaceBetween={10}
+                        spaceBetween={0}
                         modules={[Navigation]}
                         navigation={{
                             nextEl: ".swiper-button-down",
                             prevEl: ".swiper-button-up",
                         }}
-                        className="h-90"
+                        className="h-90 mt-2"
                     >
                         {images.map((img, i) => (
                             <SwiperSlide key={i}>
                                 <img
                                     src={img}
-                                    onClick={() => setActiveImage(img)}
-                                    className={`w-full h-20 object-cover rounded border cursor-pointer ${activeImage === img ? "border-black" : ""
+                                    onClick={() => goto(i)}
+                                    className={`w-full h-20 object-cover rounded border cursor-pointer ${slideIndex === i ? "border-black" : "opacity-30"
                                         }`}
                                 />
                             </SwiperSlide>
@@ -69,7 +108,7 @@ const ProductImages = ({ images }) => {
 
                     {/* 🔽 BOTTOM BUTTON */}
                     <div className="swiper-button-down w-full flex justify-center items-center cursor-pointer bg-gray-200 hover:bg-primary hover:text-white py-1 rounded">
-                        <FaArrowDown />
+                        <IoIosArrowDown />
                     </div>
                 </div>
 
@@ -77,17 +116,32 @@ const ProductImages = ({ images }) => {
                 <div className="flex-1">
 
                     <div
-                        className="w-full aspect-square border rounded overflow-hidden relative"
-                        onMouseEnter={() => setShowZoom(true)}
-                        onMouseLeave={() => setShowZoom(false)}
+                        className="w-full h-130 aspect-square border rounded overflow-hidden relative"
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
                         onMouseMove={handleMouseMove}
+                        onClick={handleClick}
+                        onMouseMove={showZoom ? handleMouseMove : null}
                     >
-                        <img
-                            src={activeImage}
-                            alt="product"
-                            className={`w-full h-full ${showZoom ? "opacity-70" : ""
-                                }`}
-                        />
+                        <Swiper
+                            ref={zoomSliderBig}
+                            slidesPerView={1}
+                            spaceBetween={0}
+                            navigation={false}
+                            className="h-full"
+                        >
+                            {images.map((img, i) => (
+                                <SwiperSlide key={i}>
+                                    <img
+                                        src={img}
+                                        alt="product"
+                                        className={`w-full h-full ${showZoom ? "opacity-70" : ""
+                                            }`}
+                                    />
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+
 
                         {/* LENS */}
                         {showZoom && (
@@ -106,7 +160,7 @@ const ProductImages = ({ images }) => {
                 <div
                     className="absolute top-0 left-[102%] w-full h-full border rounded bg-no-repeat shadow-xl z-5 hidden md:block"
                     style={{
-                        backgroundImage: `url(${activeImage})`,
+                        backgroundImage: `url(${images[slideIndex]})`,
                         backgroundSize: "200%",
                         ...zoomStyle,
                     }}
@@ -117,3 +171,7 @@ const ProductImages = ({ images }) => {
 };
 
 export default ProductImages;
+
+
+
+

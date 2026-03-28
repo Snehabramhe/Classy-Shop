@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import AddressForm from "../AddressForm";
 
 const addresses = [
   {
@@ -48,80 +49,94 @@ const orderItems = [
 
 const CheckoutPage = () => {
   const [selectedAddress, setSelectedAddress] = useState(1);
+  const [showForm, setShowForm] = useState(false);
 
   return (
     <div className="bg-gray-100 min-h-screen p-6">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-        {/* LEFT - ADDRESS SECTION */}
+        {/* LEFT */}
         <div className="lg:col-span-2 bg-white rounded-xl shadow-sm">
 
-          {/* Header */}
-          <div className="flex justify-between items-center p-6 border-b">
-            <h2 className="text-lg font-semibold">
-              Select Delivery Address
-            </h2>
-            <button className="border border-primary text-primary px-4 py-2 rounded-lg text-sm hover:bg-red-50 cursor-pointer">
-              + Add New Address
-            </button>
-          </div>
+          {/* 🔥 SHOW FORM */}
+          {showForm ? (
 
-          {/* Address List */}
-          <div className="p-6 space-y-4">
-            {addresses.map((addr) => {
-              const isSelected = selectedAddress === addr.id;
+            <AddressForm onCancel={() => setShowForm(false)} />
 
-              return (
-                <div
-                  key={addr.id}
-                  onClick={() => setSelectedAddress(addr.id)}
-                  className={`border rounded-xl p-4 cursor-pointer transition ${
-                    isSelected
-                      ? "border-green-500 bg-green-50"
-                      : "border-gray-200"
-                  }`}
+          ) : (
+
+            <>
+              {/* Header */}
+              <div className="flex justify-between items-center p-6 border-b">
+                <h2 className="text-lg font-semibold">
+                  Select Delivery Address
+                </h2>
+
+                <button
+                  onClick={() => setShowForm(true)}
+                  className="border border-primary cursor-pointer text-primary px-4 py-2 rounded-lg text-sm hover:bg-red-50"
                 >
-                  <div className="flex justify-between items-start">
-                    <div className="flex gap-3">
+                  + Add New Address
+                </button>
+              </div>
 
-                      {/* Radio */}
-                      <div
-                        className={`w-5 h-5 rounded-full border flex items-center justify-center ${
-                          isSelected
-                            ? "border-green-500"
-                            : "border-gray-400"
+              {/* Address List */}
+              <div className="p-6">
+                {addresses.map((addr) => {
+                  const isSelected = selectedAddress === addr.id;
+
+                  return (
+                    <div
+                      key={addr.id}
+                      onClick={() => setSelectedAddress(addr.id)}
+                      className={`border rounded-xl p-4 cursor-pointer transition ${isSelected
+                        ? "border-green-500 bg-green-50"
+                        : "border-gray-200"
                         }`}
-                      >
-                        {isSelected && (
-                          <div className="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
-                        )}
-                      </div>
+                    >
+                      <div className="flex justify-between items-start">
+                        <div className="flex gap-3">
 
-                      {/* Address Info */}
-                      <div>
-                        <p className="text-sm text-gray-500">
-                          {addr.type}
-                        </p>
-                        <p className="font-semibold">
-                          {addr.name}
-                        </p>
-                        <p className="text-sm text-gray-600 mt-1">
-                          {addr.address}
-                        </p>
-                        <p className="text-sm mt-1">
-                          {addr.phone}
-                        </p>
+                          {/* Radio */}
+                          <div
+                            className={`w-5 h-5 rounded-full border flex items-center justify-center ${isSelected
+                              ? "border-green-500"
+                              : "border-gray-400"
+                              }`}
+                          >
+                            {isSelected && (
+                              <div className="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
+                            )}
+                          </div>
+
+                          {/* Address Info */}
+                          <div>
+                            <p className="text-sm text-gray-500">
+                              {addr.type}
+                            </p>
+                            <p className="font-semibold">
+                              {addr.name}
+                            </p>
+                            <p className="text-sm text-gray-600 mt-1">
+                              {addr.address}
+                            </p>
+                            <p className="text-sm mt-1">
+                              {addr.phone}
+                            </p>
+                          </div>
+                        </div>
+
+                        <button className="text-green-600 text-sm font-medium">
+                          EDIT
+                        </button>
                       </div>
                     </div>
+                  );
+                })}
+              </div>
+            </>
+          )}
 
-                    <button className="text-green-600 text-sm font-medium">
-                      EDIT
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
         </div>
 
         {/* RIGHT - ORDER SUMMARY */}
