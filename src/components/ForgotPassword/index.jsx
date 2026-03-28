@@ -34,7 +34,7 @@ const ForgotPassword = () => {
                         {/* Icon */}
                         <div className="flex justify-center mb-4">
                             <div className="w-16 h-16 flex items-center justify-center">
-                              <img src={VerifyIcon} alt="verify-icon"/>
+                                <img src={VerifyIcon} alt="verify-icon" />
                             </div>
                         </div>
 
