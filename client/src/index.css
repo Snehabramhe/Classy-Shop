@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---------- Font roles ---------- */
+  /* --font-body: "Poppins", sans-serif;
+  --font-heading: "Volkhov", serif;
+  --font-digital: "Digital Numbers", monospace; */
+
+  /* ---------- Core colors ---------- */
+  --color-primary: #ff5252;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  background-color: #f5f0f0;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+}
+
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+.container {
+  width: 100%;
+  padding: 0 1px;
+  margin: 0 auto;
+}
+
+.link:hover {
+  color: #ff5252;
+}
+
+/* Hide scrollbar for Chrome, Safari and Edge */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.btn-org{
+  background: #ff5252;
+  color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.sliderHome {
+  overflow: inherit !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 100%;
+  width: 45px;
+  height: 45px;
+  min-width: 45px;
+  font-size: 12px !important;
+  color: #000 !important;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  font-size: 22px !important;
+  background-color: var(--color-primary) !important;
+  color: #fff !important;
+}
+.swiper-navigation-icon{
+  width: 25px !important;
+  height: 25px !important;
+}
+
+.input {
+  @apply border border-gray-300 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-red-400 w-full;
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 95%;
+    width: 100%; /* so flex shrink still works */
+    padding: 0;
+    min-width: 0; /* required! */
+    flex-shrink: 1;
+  }
+}
+
+@keyframes floatBasket {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(-1deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+.animate-basket {
+  animation: floatBasket 5s ease-in-out infinite;
+}
+
+@keyframes shadowMove {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(0.9);
+    opacity: 0.1;
+  }
+}
+
+.shadow-basket {
+  animation: shadowMove 5s ease-in-out infinite;
+}
+

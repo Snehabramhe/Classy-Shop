@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---------- Core colors ---------- */
+  --color-primary: #ff5252;
+}
+
+.PhoneInput input {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.PhoneInput input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+@keyframes floatBasket {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(-1deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+.animate-basket {
+  animation: floatBasket 5s ease-in-out infinite;
+}
+
+@keyframes shadowMove {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(0.9);
+    opacity: 0.1;
+  }
+}
+
+.shadow-basket {
+  animation: shadowMove 5s ease-in-out infinite;
+}
+
